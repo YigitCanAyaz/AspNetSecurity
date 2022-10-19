@@ -1,9 +1,12 @@
+using WhiteBlackList.Web.Filters;
 using WhiteBlackList.Web.MiddleWares;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<CheckWhiteList>();
 
 builder.Services.Configure<IPList>(builder.Configuration.GetSection("IPList"));
 
@@ -17,14 +20,14 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+//app.UseMiddleware<IPSafeMiddleWare>();
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthorization();
-
-app.UseMiddleware<IPSafeMiddleWare>();
 
 app.MapControllerRoute(
     name: "default",

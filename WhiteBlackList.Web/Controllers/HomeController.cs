@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using WhiteBlackList.Web.Filters;
 using WhiteBlackList.Web.Models;
 
 namespace WhiteBlackList.Web.Controllers
 {
+    [ServiceFilter(typeof(CheckWhiteList))]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
