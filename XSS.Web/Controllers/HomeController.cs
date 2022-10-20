@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Text.Encodings.Web;
 using XSS.Web.Models;
 
 namespace XSS.Web.Controllers
@@ -8,9 +9,16 @@ namespace XSS.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        // Encoders for code level: 
+        private HtmlEncoder _htmlEncoder;
+        private JavaScriptEncoder _javascriptEncoder;
+        private UrlEncoder _urlEncoder;
+
+        public HomeController(ILogger<HomeController> logger, JavaScriptEncoder javascriptEncoder, UrlEncoder urlEncoder)
         {
             _logger = logger;
+            _javascriptEncoder = javascriptEncoder; 
+            _urlEncoder = urlEncoder;
         }
 
         public IActionResult CommentAdd()
@@ -31,6 +39,9 @@ namespace XSS.Web.Controllers
         [HttpPost]
         public IActionResult CommentAdd(string name, string comment)
         {
+
+            string encodeName = _urlEncoder.Encode(name);
+
             ViewBag.name = name;
             ViewBag.comment = comment;
 
