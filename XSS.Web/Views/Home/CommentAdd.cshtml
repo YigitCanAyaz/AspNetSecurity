@@ -24,6 +24,17 @@
     <h1>
         Comments
     </h1>
+
+    <!--For stored XSS attack-->
+    @if(ViewBag.comments != null)
+    {
+        foreach (var item in ViewBag.comments as string[])
+        {
+            <span>@Html.Raw(item)</span>
+            <hr/>
+        }
+    }
+
     <strong>@ViewBag.name</strong>
     <hr />
     <span>@Html.Raw(ViewBag.comment)</span>

@@ -1,0 +1,4 @@
+myself--comment 1
+script code--<script>alert('merhaba')</script>
+<b>Yorumlar çok güzel</b>
+--<script>alert(document.cookie)</script>

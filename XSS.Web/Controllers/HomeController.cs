@@ -19,6 +19,12 @@ namespace XSS.Web.Controllers
             // <script>alert(document.cookie)</script>
             HttpContext.Response.Cookies.Append("email", "example@mail.com");
             HttpContext.Response.Cookies.Append("password", "1234");
+
+            if(System.IO.File.Exists("comment.txt"))
+            {
+                ViewBag.comments = System.IO.File.ReadAllLines("comment.txt");
+            }
+
             return View();
         }
 
@@ -28,7 +34,10 @@ namespace XSS.Web.Controllers
             ViewBag.name = name;
             ViewBag.comment = comment;
 
-            return View();
+            // Stored XSS
+            System.IO.File.AppendAllText("comment.txt", $"{name}--{comment}\n");
+
+            return RedirectToAction("CommentAdd");
         }
 
         public IActionResult Index()
