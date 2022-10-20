@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteBlackList.Web", "White
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecretProtection.Web", "SecretProtection.Web\SecretProtection.Web.csproj", "{2A309FB6-0FF9-4DD4-AF7C-B7E29D23CF7B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cors.API", "Cors.API\Cors.API.csproj", "{6838DC26-E818-4DC7-B5C2-7700E31AAF4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cors.Web", "Cors.Web\Cors.Web.csproj", "{8F0AC4BE-C671-41D0-B22A-4557F598A713}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{2A309FB6-0FF9-4DD4-AF7C-B7E29D23CF7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A309FB6-0FF9-4DD4-AF7C-B7E29D23CF7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A309FB6-0FF9-4DD4-AF7C-B7E29D23CF7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6838DC26-E818-4DC7-B5C2-7700E31AAF4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6838DC26-E818-4DC7-B5C2-7700E31AAF4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6838DC26-E818-4DC7-B5C2-7700E31AAF4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6838DC26-E818-4DC7-B5C2-7700E31AAF4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F0AC4BE-C671-41D0-B22A-4557F598A713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F0AC4BE-C671-41D0-B22A-4557F598A713}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F0AC4BE-C671-41D0-B22A-4557F598A713}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F0AC4BE-C671-41D0-B22A-4557F598A713}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
