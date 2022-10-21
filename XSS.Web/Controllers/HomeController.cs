@@ -53,6 +53,32 @@ namespace XSS.Web.Controllers
             return RedirectToAction("CommentAdd");
         }
 
+        // https://localhost:7148/home/login?returnUrl=https://www.bloomberg.com (redirects to bloomberg)
+        public IActionResult Login(string returnUrl = "/")
+        {
+            TempData["returnUrl"] = returnUrl;
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(string email, string password)
+        {
+            string returnUrl = TempData["returnUrl"].ToString();
+
+            // email password control
+            // ......................
+
+            // blocking open redirect attack
+            // checking return url:
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+
+            return Redirect("/");
+        }
+
         public IActionResult Index()
         {
             return View();
