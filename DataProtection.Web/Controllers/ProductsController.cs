@@ -38,6 +38,23 @@ namespace DataProtection.Web.Controllers
               return View(products);
         }
 
+        // SQL INJECTION ATTACK
+        [HttpPost]
+        public IActionResult Index(string searchText)
+        {
+            // safe
+            // var product = _context.Products.Where(x => x.Name == searchText).ToList();
+
+            // attackable
+            // var product = _context.Products.FromSqlRaw("select * from products where Name = " + "'" + searchText + "'").ToList();
+
+            // safe
+            // var product = _context.Products.FromSqlInterpolated($"select * from products where name={searchText}").ToList();
+            var product = _context.Products.FromSqlRaw("select * from products where name ={0}", searchText).ToList();
+
+            return View(product);
+        }
+
         // GET: Products/Details/5
         public async Task<IActionResult> Details(string id)
         {
